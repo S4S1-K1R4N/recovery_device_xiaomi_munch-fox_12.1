@@ -75,6 +75,9 @@ TARGET_BOARD_INFO_FILE := $(DEVICE_PATH)/board-info.txt
 # -----------------------------------------------------
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
 TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb
+# Hack to bypass generated_kernel_includes for prebuilt kernels
+TARGET_KERNEL_SOURCE := kernel/xiaomi/munch
+$(shell mkdir -p $(TARGET_KERNEL_SOURCE) && echo "headers_install:" > $(TARGET_KERNEL_SOURCE)/Makefile)
 # -----------------------------------------------------
 
 # 12.1 manifest requirements
